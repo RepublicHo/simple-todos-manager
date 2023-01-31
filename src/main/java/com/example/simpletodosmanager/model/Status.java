@@ -3,7 +3,7 @@ package com.example.simpletodosmanager.model;
 /**
  * @Author Anthony HE, anthony.zj.he@outlook.com
  * @Date 31/1/2023
- * @Description:
+ * @Description: Todo item status.
  */
 public enum Status {
     DONE, // the item has been done by the due date

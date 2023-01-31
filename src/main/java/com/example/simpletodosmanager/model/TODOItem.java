@@ -21,7 +21,10 @@ public class TODOItem implements Serializable {
     private Long id;
 
     @NotBlank
-    private String name;
+    private String userName;
+
+    @NotBlank
+    private String itemName;
 
     private String Description;
 
@@ -44,12 +47,19 @@ public class TODOItem implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String name) {
+        this.userName = name;
+    }
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String name) {
+        this.itemName = name;
     }
 
     public String getDescription() {

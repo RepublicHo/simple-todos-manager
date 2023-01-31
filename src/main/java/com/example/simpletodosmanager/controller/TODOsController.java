@@ -43,7 +43,7 @@ public class TODOsController {
         TODOItem todoItem = toDosRepository.findById(itemId)
                 .orElseThrow(() ->  new ResourceNotFoundException("Item", "id", itemId));
 
-        todoItem.setName(requestItem.getName());
+        todoItem.setItemName(requestItem.getItemName());
         todoItem.setDescription(requestItem.getDescription());
         todoItem.setlastModifiedDate(requestItem.getlastModifiedDate());
         todoItem.setDueDate(requestItem.getDueDate());
