@@ -14,9 +14,6 @@ import java.util.Optional;
 public interface TODOsRepository extends JpaRepository<TODOItem, Long> {
     Optional<TODOItem> findByItemName(String name);
     Optional<TODOItem> findByDueDate(Date date);
-    Optional<TODOItem> findByDueDateBefore(Date date);
-    Optional<TODOItem> findByDueDateAfter(Date date);
-    Optional<TODOItem> findByDueDateBetween(Date date1, Date date2);
 
 
 

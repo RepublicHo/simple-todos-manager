@@ -1,0 +1,49 @@
+@startuml
+
+Role o-- RoleName
+User o- Role
+TODOItem -- User
+TODOItem o- Status
+User <-- DateAudit
+
+enum RoleName{
+    USER
+    ADMIN
+}
+
+enum Status{
+    DONE
+    OVERDUE
+    TODO
+}
+
+class DateAudit{
+private Instant createdAt;
+private Instant updatedAt;
+}
+
+class Role{
+private Long id;
+private RoleName name;
+}
+
+class User{
+private Long id;
+private String username;
+private String password;
+private Set<Role> roles;
+
+}
+
+class TODOItem{
+
+private Long id;
+private String userName;
+private String itemName;
+private String Description;
+private Date lastModifiedDate;
+private Date dueDate;
+private Status status;
+
+}
+@enduml

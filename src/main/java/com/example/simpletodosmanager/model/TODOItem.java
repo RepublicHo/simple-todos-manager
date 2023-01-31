@@ -20,7 +20,7 @@ public class TODOItem implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotBlank // multiple user can collaborate on one item
     private String userName;
 
     @NotBlank
@@ -70,11 +70,11 @@ public class TODOItem implements Serializable {
         Description = description;
     }
 
-    public Date getlastModifiedDate() {
+    public Date getLastModifiedDate() {
         return lastModifiedDate;
     }
 
-    public void setlastModifiedDate(Date lastModifiedDate) {
+    public void setLastModifiedDate(Date lastModifiedDate) {
         this.lastModifiedDate = lastModifiedDate;
     }
 

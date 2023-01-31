@@ -7,7 +7,9 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @Author Anthony HE, anthony.zj.he@outlook.com
@@ -26,7 +28,6 @@ public class TODOsController {
         return toDosRepository.findAll();
     }
 
-
     @PostMapping("/todos")
     public TODOItem createToDoItem(@Valid @RequestBody TODOItem item){
         return toDosRepository.save(item);
@@ -35,6 +36,17 @@ public class TODOsController {
     public TODOItem getToDoItemById(@PathVariable(value = "id") Long itemId){
         return toDosRepository.findById(itemId)
                 .orElseThrow(() -> new ResourceNotFoundException("Item", "id", itemId));
+    }
+    @PostMapping("/todos/{name}")
+    public Optional<TODOItem> getToDoItemByItemName(@PathVariable(value = "name") String name){
+        return Optional.ofNullable(toDosRepository.findByItemName(name)
+                .orElseThrow(() -> new ResourceNotFoundException("Item", "id", name)));
+    }
+
+    @PostMapping("/todos/{date}")
+    public Optional<TODOItem> getToDoItemByDueDate(@PathVariable(value = "date") Date date){
+        return Optional.ofNullable(toDosRepository.findByDueDate(date)
+                .orElseThrow(() -> new ResourceNotFoundException("Item", "id", date)));
     }
 
     @PutMapping("/todos/{id}")
@@ -45,7 +57,7 @@ public class TODOsController {
 
         todoItem.setItemName(requestItem.getItemName());
         todoItem.setDescription(requestItem.getDescription());
-        todoItem.setlastModifiedDate(requestItem.getlastModifiedDate());
+        todoItem.setLastModifiedDate(requestItem.getLastModifiedDate());
         todoItem.setDueDate(requestItem.getDueDate());
 
         TODOItem updatedItem = toDosRepository.save(todoItem);
