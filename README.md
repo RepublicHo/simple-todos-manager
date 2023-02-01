@@ -1,6 +1,8 @@
 # Simple-ToDos-Manager
 
-This project is based on Spring Framework. 
+This project is to implement a simple ToDos Manager that 
+performs CRUD (Create, Read, Update and Delete) operations 
+based on Spring Framework. 
 
 ## Steps to set up this project
 1. **Clone the application**

@@ -1,6 +1,5 @@
 package com.example.simpletodosmanager.exception;
 
-
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
