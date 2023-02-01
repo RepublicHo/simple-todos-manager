@@ -4,6 +4,8 @@ import com.example.simpletodosmanager.exception.ResourceNotFoundException;
 import com.example.simpletodosmanager.model.TODOItem;
 import com.example.simpletodosmanager.repository.TODOsRepository;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,15 +25,17 @@ public class TODOsController {
 
     TODOsRepository toDosRepository;
 
-    @GetMapping("/todos")
-    public List<TODOItem> getAllToDoItems(){
-        return toDosRepository.findAll();
-    }
-
     @PostMapping("/todos")
     public TODOItem createToDoItem(@Valid @RequestBody TODOItem item){
         return toDosRepository.save(item);
     }
+
+    @GetMapping("/todos")
+    public List<TODOItem> getAllToDoItems(){
+        // sort by the due date
+        return toDosRepository.findAll(Sort.by(Sort.Direction.ASC, "dueDate"));
+    }
+
     @PostMapping("/todos/{id}")
     public TODOItem getToDoItemById(@PathVariable(value = "id") Long itemId){
         return toDosRepository.findById(itemId)
