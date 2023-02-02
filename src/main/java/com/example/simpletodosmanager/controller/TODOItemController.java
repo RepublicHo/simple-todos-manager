@@ -54,7 +54,7 @@ public class TODOItemController {
         return "redirect:/todos";
     }
 
-    @GetMapping("/todos/in-pogress")
+    @GetMapping("/todos/in-progress")
     public String getToDoItemsInProgress(Model model, Principal principal, SecurityContextHolderAwareRequestWrapper request){
 
         User signedUser = userService.getUserById(Long.parseLong(principal.getName()));

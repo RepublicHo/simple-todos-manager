@@ -16,6 +16,8 @@ import java.util.Optional;
  */
 public interface TODOsRepository extends JpaRepository<TODOItem, Long> {
     Optional<TODOItem> findByItemName(String name);
+    List<TODOItem> findByOwnerOrderByDueDateDesc(User user);
+
 
 
 }

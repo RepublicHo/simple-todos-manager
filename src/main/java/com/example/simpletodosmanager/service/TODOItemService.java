@@ -17,6 +17,8 @@ public interface TODOItemService {
     void deleteItem(Long id);
     List<TODOItem> findAll();
 
+    List<TODOItem> findByOwnerOrderByDueDateDesc(User user);
+
     void setItemInProgress(Long id);
     void setItemOverdue(Long id);
     void setItemCompleted(Long id);

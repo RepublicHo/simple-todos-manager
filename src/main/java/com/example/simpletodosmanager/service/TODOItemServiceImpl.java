@@ -51,6 +51,10 @@ public class TODOItemServiceImpl implements TODOItemService{
         return repository.findAll();
     }
 
+    @Override
+    public List<TODOItem> findByOwnerOrderByDueDateDesc(User user) {
+        return repository.findByOwnerOrderByDueDateDesc(user);
+    }
 
     @Override
     public void setItemInProgress(Long id) {
