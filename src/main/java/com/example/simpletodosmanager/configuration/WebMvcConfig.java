@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * @Author Anthony HE, anthony.zj.he@outlook.com
  * @Date 1/2/2023
- * @Description:
+ * @Description: Defines callback methods to customize the Java-based configuration for Spring MVC
  */
 
 @Configuration

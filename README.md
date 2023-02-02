@@ -33,7 +33,10 @@ based on Spring Framework.
    The server will start on port 5000.
 
 ## Features
-TODOs CRUD: Each to-do item has its ID, 
+1. Each to-do item has its own ID (as primary key), name, description, due date, status (Completed, Overdue, or In progress), as well as creator name and owner (who is assigned to finish this to-do item).
+2. To-do item sorting and filtering. 
+3. Passcode Encoder based on Spring Security. 
+4. To-do task assignment for team cooperation. 
 
 ## Class Diagram
 
@@ -42,11 +45,11 @@ TODOs CRUD: Each to-do item has its ID,
 
 ## Room for improvement
 
-1. Lack Authentication features. 
-2. DevOps
-3. To-do item assignment to refine. 
-4. Front-end sites. 
-5. Tests
+1. Need more Authentication features, apart from PasswordEncoder.
+2. To-do item assignment yet to refine. 
+3. Front-end sites. 
+4. Tests on this rest api. 
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details

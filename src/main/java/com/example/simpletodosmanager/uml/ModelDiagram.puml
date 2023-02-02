@@ -2,7 +2,7 @@
 
 Role o-- RoleName
 User - Role
-TODOItem --o User
+TODOItem -- User
 TODOItem o- Status
 
 enum RoleName{
@@ -38,6 +38,8 @@ class TODOItem{
 <plain>- String Description;
 <plain>- LocalDate dueDate;
 <plain>- Status status;
+<plain>- String creatorName;
+<plain>- User owner;
 
 }
 @enduml
