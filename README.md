@@ -48,7 +48,7 @@ based on Spring Framework.
 1. Need more Authentication features, apart from PasswordEncoder.
 2. To-do item assignment yet to refine. 
 3. Front-end sites. 
-4. Tests on this rest api. 
+4. Tests on this rest api with postman, apart from tests on the model. 
 
 ## License
 
