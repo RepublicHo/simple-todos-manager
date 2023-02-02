@@ -40,9 +40,13 @@ TODOs CRUD: Each to-do item has its ID,
 [diagram](/src/main/java/com/example/simpletodosmanager/uml/diagram.png)
 
 
-## Limitations
+## Room for improvement
 
 1. Lack Authentication features. 
+2. DevOps
+3. To-do item assignment to refine. 
+4. Front-end sites. 
+5. Tests
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
