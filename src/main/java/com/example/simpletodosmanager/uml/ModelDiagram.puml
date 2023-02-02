@@ -2,9 +2,8 @@
 
 Role o-- RoleName
 User o- Role
-TODOItem -- User
+TODOItem --o User
 TODOItem o- Status
-User <-- DateAudit
 
 enum RoleName{
     USER
@@ -17,33 +16,28 @@ enum Status{
     TODO
 }
 
-class DateAudit{
-private Instant createdAt;
-private Instant updatedAt;
-}
 
 class Role{
-private Long id;
-private RoleName name;
+<plain>- Long id;
+<plain>- RoleName roleName;
+<plain>- Set<User> users;
 }
 
 class User{
-private Long id;
-private String username;
-private String password;
-private Set<Role> roles;
+<plain>- Long id;
+<plain>- String name;
+<plain>- String password;
+<plain>- List<TODOItem> todoItemOwned;
+<plain>- Set<Role> roles;
 
 }
 
 class TODOItem{
-
-private Long id;
-private String userName;
-private String itemName;
-private String Description;
-private Date lastModifiedDate;
-private Date dueDate;
-private Status status;
+<plain>- Long id;
+<plain>- String itemName;
+<plain>- String Description;
+<plain>- LocalDate dueDate;
+<plain>- Status status;
 
 }
 @enduml
