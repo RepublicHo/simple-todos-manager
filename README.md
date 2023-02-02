@@ -22,6 +22,16 @@ based on Spring Framework.
 
     + change `spring.datasource.username` and `spring.datasource.password` properties as per your mysql installation
 
+4. **Run the app**
+
+   You can run the spring boot app by typing the following command -
+
+   ```bash
+   mvn spring-boot:run
+   ```
+
+   The server will start on port 5000.
+
 ## Features
 TODOs CRUD: Each to-do item has its ID, 
 
