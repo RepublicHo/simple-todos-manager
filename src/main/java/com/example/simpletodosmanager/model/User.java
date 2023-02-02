@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import org.hibernate.validator.constraints.Length;
+
+import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -15,11 +18,7 @@ import java.util.stream.Collectors;
  */
 
 @Entity
-@Table(name = "users", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {
-                "username"
-        }),
-})
+@Table(name = "user")
 public class User{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,7 +34,7 @@ public class User{
     private String password;
 
     @OneToMany(mappedBy = "owner", cascade = CascadeType.PERSIST)
-    private Set<TODOItem> todoItemOwned;
+    private List<TODOItem> todoItemOwned;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
@@ -50,7 +49,7 @@ public class User{
         this.password = password;
     }
     public User(@NotBlank String name, @NotBlank @Length(min = 5) String password,
-                Set<TODOItem> todoItemOwned, Set<Role> roles) {
+                List<TODOItem> todoItemOwned, Set<Role> roles) {
         this.name = name;
         this.password = password;
         this.todoItemOwned = todoItemOwned;
@@ -85,11 +84,11 @@ public class User{
         this.name = name;
     }
 
-    public Set<TODOItem> getTodoItemOwned() {
+    public List<TODOItem> getTodoItemOwned() {
         return todoItemOwned;
     }
 
-    public void setTodoItemOwned(Set<TODOItem> todoItemOwned) {
+    public void setTodoItemOwned(List<TODOItem> todoItemOwned) {
         this.todoItemOwned = todoItemOwned;
     }
 

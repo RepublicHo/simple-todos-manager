@@ -45,7 +45,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
         // Roles
         roleService.createRole(new Role(RoleName.ADMIN));
         roleService.createRole(new Role(RoleName.USER));
-        roleService.findAll().stream().map(role -> "saved role: " + role.getName()).forEach(logger::info);
+        roleService.findAll().stream().map(role -> "saved role: " + role.getRoleName()).forEach(logger::info);
 
 
         // Users

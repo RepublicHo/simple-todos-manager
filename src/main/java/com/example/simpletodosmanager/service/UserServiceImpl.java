@@ -41,14 +41,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public User createUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        Role userRole = roleRepository.findByRole(RoleName.USER);
+        Role userRole = roleRepository.findByRoleName(RoleName.USER);
         user.setRoles(new HashSet<>(Arrays.asList(userRole)));
         return userRepository.save(user);
     }
 
     @Override
     public User changeRoleToAdmin(User user) {
-        Role adminRole = roleRepository.findByRole(RoleName.ADMIN);
+        Role adminRole = roleRepository.findByRoleName(RoleName.ADMIN);
         user.setRoles(new HashSet<>(Arrays.asList(adminRole)));
         return userRepository.save(user);
     }

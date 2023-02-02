@@ -2,7 +2,9 @@ package com.example.simpletodosmanager.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -20,16 +22,18 @@ public class TODOItem implements Serializable {
 
     @Id // primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "todo_id")
     private Long id;
 
     @NotBlank(message = "{task.description.not.empty}")
     private String itemName;
 
     @Size(max = 1200, message = "{task.description.size}")
+    @Column(length = 1200)
     private String description;
 
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
+    @NotNull(message = "{task.date.not.null}")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dueDate;
 
     private Status status;
@@ -37,7 +41,7 @@ public class TODOItem implements Serializable {
     private String creatorName;
     @ManyToOne
     @JoinColumn(name = "OWNER_ID")
-    private User Owner;
+    private User owner;
 
     public TODOItem() {
 
@@ -52,8 +56,18 @@ public class TODOItem implements Serializable {
         this.creatorName = creatorName;
     }
 
+
     public Long getId() {
         return id;
+    }
+
+    public TODOItem(Long id, String itemName, String description, LocalDate dueDate, String creatorName, User owner) {
+        this.id = id;
+        this.itemName = itemName;
+        this.description = description;
+        this.dueDate = dueDate;
+        this.creatorName = creatorName;
+        this.owner = owner;
     }
 
     public void setId(Long id) {
@@ -101,11 +115,11 @@ public class TODOItem implements Serializable {
     }
 
     public User getOwner() {
-        return Owner;
+        return this.owner;
     }
 
     public void setOwner(User owner) {
-        Owner = owner;
+        this.owner = owner;
     }
 
     @Override

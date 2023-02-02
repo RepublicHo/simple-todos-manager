@@ -12,7 +12,6 @@ import java.util.Set;
  */
 
 @Entity
-@Table(name = "roles")
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,9 +20,8 @@ public class Role {
 
     @Enumerated(EnumType.STRING)
     @NaturalId
-    @Column(length = 60, name = "role")
-    private RoleName name;
-
+    @Column(name = "role_name")
+    private RoleName roleName;
 
     @ManyToMany(mappedBy = "roles")
     private Set<User> users;
@@ -33,10 +31,10 @@ public class Role {
     }
 
     public Role(RoleName name) {
-        this.name = name;
+        this.roleName = name;
     }
     public Role(RoleName name, Set<User> users) {
-        this.name = name;
+        this.roleName = name;
         this.users = users;
     }
 
@@ -48,12 +46,12 @@ public class Role {
         this.id = id;
     }
 
-    public RoleName getName() {
-        return name;
+    public RoleName getRoleName() {
+        return roleName;
     }
 
-    public void setName(RoleName name) {
-        this.name = name;
+    public void setRoleName(RoleName name) {
+        this.roleName = name;
     }
 
     public Set<User> getUsers() {
