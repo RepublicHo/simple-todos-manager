@@ -1,7 +1,7 @@
 @startuml
 
 Role o-- RoleName
-User o- Role
+User - Role
 TODOItem --o User
 TODOItem o- Status
 

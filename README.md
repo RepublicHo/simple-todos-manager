@@ -37,7 +37,7 @@ TODOs CRUD: Each to-do item has its ID,
 
 ## Class Diagram
 
-[diagram](/src/main/java/com/example/simpletodosmanager/uml/diagram.png)
+![diagram](/src/main/java/com/example/simpletodosmanager/uml/ModelDiagram.png)
 
 
 ## Room for improvement
