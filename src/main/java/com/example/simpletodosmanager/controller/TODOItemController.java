@@ -6,6 +6,7 @@ import com.example.simpletodosmanager.model.User;
 import com.example.simpletodosmanager.service.TODOItemService;
 import com.example.simpletodosmanager.service.UserService;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestWrapper;
@@ -28,6 +29,7 @@ public class TODOItemController {
     private TODOItemService todoItemService;
     private UserService userService;
 
+    @Autowired
     public TODOItemController(TODOItemService todoItemService, UserService userService) {
         this.todoItemService = todoItemService;
         this.userService = userService;
